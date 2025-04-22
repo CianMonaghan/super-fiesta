@@ -5,9 +5,23 @@
 
 int main(int argc, char *argv[])
 {
-  // TODO: attempt to open scenario file and scan data into allocated structures
+  if(argc != 1){
+    printf("Usage: ./bankers <system-state-file>");
+  }
+  FILE *file = fopen(argv[0], NULL);
+  if(file==NULL){
+    printf("No file found");
+  }
 
-  // TODO: Run banker's safety algorithm
+  int nres =0; 	// number of resource types
+  int nproc=0;	// number of processes
+  fscanf(file, "%d", &nres);
+  fscanf(file, "%d", &nproc);
+  int* vec= (int*)malloc(nres*sizeof(int));
+  int* mat= (int*)malloc(nres*sizeof(int));
+  matClone(mat, nres, nproc);
+  vecClone(vec, nres);
 
+  matPrint(isSafe(vec, mat, mat, vec), nres, nproc);
   return 0;
 }

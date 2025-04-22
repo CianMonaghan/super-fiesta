@@ -1,2 +1,11 @@
-
-// TODO: function prototypes of vector and matrix operations
+int* vecClone(int* vector, int size);
+int** matClone(int** matrix, int rows, int cols);
+int* vecCompare(int* vec1, int* vec2, int size);
+void vecAdd(int* vec1, int* vec2, int* vecOutput, int size);
+void vecSub(int* vec1, int* vec2, int* vecOutput, int size);
+void matAdd(int** mat1, int** mat2, int** matOutput, int rows, int cols);
+void matSub(int** mat1, int** mat2, int** matOutput, int rows, int cols);
+void vecPrint(int* vector, int size);
+void matPrint(int** matrix, int rows, int cols);
+void vecFree(int* vector, int size);
+void matFree(int** matrix, int rows, int cols);
